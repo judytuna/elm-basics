@@ -81,11 +81,8 @@ reverseTheList inputList =
 addOne : List Int -> List Int
 addOne inputList =
     -- TODO: add one to every item in the list
-    List.map (plusOne) inputList
+    List.map (\num -> num + 1) inputList
 
-plusOne : Int -> Int
-plusOne i =
-    i + 1
 
 removeOs : List String -> List String
 removeOs inputList =
