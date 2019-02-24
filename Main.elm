@@ -112,20 +112,17 @@ ageDifference person1 person2 =
 
 nameChange : String -> Person -> Person
 nameChange newName person =
-    -- TODO: fix me
-    person
+    { person | name = newName }
 
 
 getOlder : Person -> Person
 getOlder person =
-    -- TODO: fix me
-    person
+    { person | age = person.age + 1 }
 
 
 combinedYears : List Person -> Int
 combinedYears people =
-    -- TODO: fix me
-    0
+    List.sum (List.map (\p -> p.age) people)
 
 
 
