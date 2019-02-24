@@ -86,16 +86,7 @@ addOne inputList =
 removeOs : List String -> List String
 removeOs inputList =
     -- TODO: remove all entries that start with "O"
-    List.filter startsWithO inputList
-
-
-startsWithO : String -> Bool
-startsWithO s =
-    if String.left 1 s == "O" then
-        False
-
-    else
-        True
+    List.filter (\word -> String.left 1 word /= "O") inputList
 
 
 
@@ -108,31 +99,30 @@ type alias Person =
     { name : String, age : Int }
 
 
-newborn : String -> { name : String, age : Int }
+newborn : String -> Person
 newborn name =
-    -- TODO: fix me
-    { name = "", age = -1 }
+    { name = name, age = 0 }
 
 
-ageDifference : { name : String, age : Int } -> { name : String, age : Int } -> Int
+ageDifference : Person -> Person -> Int
 ageDifference person1 person2 =
-    -- TODO: fix me
-    0
+    -- abs (person1.age - person2.age)
+    abs (List.sum [ person1.age, 0 - person2.age ])
 
 
-nameChange : String -> { name : String, age : Int } -> { name : String, age : Int }
+nameChange : String -> Person -> Person
 nameChange newName person =
     -- TODO: fix me
     person
 
 
-getOlder : { name : String, age : Int } -> { name : String, age : Int }
+getOlder : Person -> Person
 getOlder person =
     -- TODO: fix me
     person
 
 
-combinedYears : List { name : String, age : Int } -> Int
+combinedYears : List Person -> Int
 combinedYears people =
     -- TODO: fix me
     0
