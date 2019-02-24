@@ -136,8 +136,16 @@ combinedYears people =
 
 signAndMagnitude : Int -> ( String, Int )
 signAndMagnitude x =
-    -- TODO: implement me
-    ( "TODO", 0 )
+    ( whatsYourSign x, abs x )
+
+
+whatsYourSign : Int -> String
+whatsYourSign x =
+    if x >= 0 then
+        "+"
+
+    else
+        "-"
 
 
 
@@ -152,9 +160,16 @@ pigLatin word =
     -- and put it at the end of the word, followed by an "ay" sound.
     -- Pig latin, in pig latin, is "Ig-pay atin-lay"
     -- For this exercise, just worry about producing a single word in pig latin.
-    "TODO: implement me"
+    case String.uncons word of
+        Just ( x, xs ) ->
+            String.toUpper (String.left 1 xs)
+                ++ String.right (String.length xs - 1) xs
+                ++ "-"
+                ++ String.toLower (String.fromChar x)
+                ++ "ay"
 
-
+        Nothing ->
+            "oops"
 
 --
 -- Congratulations!  You've finished!
