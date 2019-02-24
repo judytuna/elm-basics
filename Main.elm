@@ -14,19 +14,31 @@ import String
 
 sayHello : String -> String
 sayHello friendsName =
-    "TODO: implement me"
+    "Hello, " ++ friendsName
 
 
 formatPhoneNumber : String -> String -> String -> String
 formatPhoneNumber areaCode exchange local =
     -- desired format: (999) 999-9999
-    "TODO: implement me"
+    "(" ++ areaCode ++ ")" ++ " " ++ exchange ++ "-" ++ local
 
 
 initials : String -> String -> String
 initials firstName lastName =
     -- HINT: look at http://package.elm-lang.org/packages/elm/core/latest/String for useful functions
-    "TODO: implement me"
+    String.left 1 firstName ++ String.left 1 lastName
+--     getFirst firstName ++ getFirst lastName
+
+-- getFirst : Maybe Tuple -> String
+-- getFirst name =
+--     case String.uncons name of
+--         Nothing ->
+--             "oops"
+
+--         Just f ->
+--             String.fromChar (Tuple.first f)
+
+
 
 
 
@@ -38,12 +50,19 @@ initials firstName lastName =
 isGreaterThanTen : Int -> Bool
 isGreaterThanTen x =
     -- TODO: implement me
-    False
+    x > round 10.3
 
 
 howHotIsThePepper : Float -> String
 howHotIsThePepper heatUnits =
-    "TODO: implement me"
+    if heatUnits < 100 then
+        "not hot"
+    else if heatUnits < 1000 then
+        "mild"
+    else if heatUnits < 50000 then
+        "medium"
+    else
+        "hot"
 
 
 
@@ -56,20 +75,29 @@ reverseTheList : List a -> List a
 reverseTheList inputList =
     -- TODO: return the reversed inputList
     -- HINT: look at http://package.elm-lang.org/packages/elm/core/latest/List for useful functions
-    []
+    List.reverse inputList
 
 
 addOne : List Int -> List Int
 addOne inputList =
     -- TODO: add one to every item in the list
-    []
+    List.map (plusOne) inputList
 
+plusOne : Int -> Int
+plusOne i =
+    i + 1
 
 removeOs : List String -> List String
 removeOs inputList =
     -- TODO: remove all entries that start with "O"
-    []
+    List.filter startsWithO inputList
 
+startsWithO : String -> Bool
+startsWithO s =
+    if String.left 1 s == "O" then
+        False
+    else
+        True
 
 
 --
