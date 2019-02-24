@@ -27,21 +27,17 @@ initials : String -> String -> String
 initials firstName lastName =
     -- HINT: look at http://package.elm-lang.org/packages/elm/core/latest/String for useful functions
     String.left 1 firstName ++ String.left 1 lastName
---     getFirst firstName ++ getFirst lastName
 
+
+
+--     getFirst firstName ++ getFirst lastName
 -- getFirst : Maybe Tuple -> String
 -- getFirst name =
 --     case String.uncons name of
 --         Nothing ->
 --             "oops"
-
 --         Just f ->
 --             String.fromChar (Tuple.first f)
-
-
-
-
-
 --
 -- If Statements
 --
@@ -57,10 +53,13 @@ howHotIsThePepper : Float -> String
 howHotIsThePepper heatUnits =
     if heatUnits < 100 then
         "not hot"
+
     else if heatUnits < 1000 then
         "mild"
+
     else if heatUnits < 50000 then
         "medium"
+
     else
         "hot"
 
@@ -81,7 +80,7 @@ reverseTheList inputList =
 addOne : List Int -> List Int
 addOne inputList =
     -- TODO: add one to every item in the list
-    List.map (\num -> num + 1) inputList
+    List.map (\i -> i + 1) inputList
 
 
 removeOs : List String -> List String
@@ -89,12 +88,15 @@ removeOs inputList =
     -- TODO: remove all entries that start with "O"
     List.filter startsWithO inputList
 
+
 startsWithO : String -> Bool
 startsWithO s =
     if String.left 1 s == "O" then
         False
+
     else
         True
+
 
 
 --
